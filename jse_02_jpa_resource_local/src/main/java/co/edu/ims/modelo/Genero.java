@@ -7,7 +7,7 @@ import javax.persistence.Id;
 @Entity
 public class Genero implements Serializable {
     
-    // Atrinutos
+    // Atributos
     @Id    
     private String nombre;
     private String descripcion;
@@ -21,7 +21,7 @@ public class Genero implements Serializable {
         this.descripcion = d;
     }
 
-    // Getters y setters...
+    // Getters & setters...
     public String getNombre() {
         return nombre;
     }

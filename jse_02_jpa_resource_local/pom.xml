@@ -8,6 +8,8 @@
     </parent>
     <artifactId>jse_02_jpa_resource_local</artifactId>
     <packaging>jar</packaging>
+    <name>jse_02_jpa_resource_local</name>
+    
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -30,21 +32,21 @@
         </dependency>
         -->
         <!-- Controladores para JDBC Derby -->
-<!--        
+       
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbyclient</artifactId>
             <version>10.13.1.1</version>
         </dependency>
--->
         
         <!-- Controladores para JDBC MySQL-->
+        <!--
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.40</version>
         </dependency>
-                                       
+        -->                           
     </dependencies>
-    <name>jse_02_jpa_resource_local</name>
+    
 </project>

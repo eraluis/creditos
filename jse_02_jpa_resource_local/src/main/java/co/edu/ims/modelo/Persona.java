@@ -14,12 +14,12 @@ public class Persona implements Serializable {
     
     // Atributos
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     
     private String nombre;
     private String nacionalidad;
     
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.DATE )
     private Date fechaNacimiento;
     
     // Contructores
@@ -31,12 +31,12 @@ public class Persona implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
     }
     
-    // Getters y setters...
-    public Long getId() {
+    // Getters & setters...
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
