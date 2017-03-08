@@ -62,9 +62,7 @@ public class AppMain {
         
         tx.begin();
         em.persist(habitacionDelNinio);
-        tx.rollback();
         tx.commit();
-        
         
         // Se crea objeto en memoria (sin persistir aun).
         Genero romance = new Genero("Romance", "Peliculas de romance");

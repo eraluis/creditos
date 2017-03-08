@@ -23,16 +23,7 @@
             <version>2.5.2</version>
         </dependency>
         
-        <!--
-        <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>2.1.0</version>
-            <type>jar</type>
-        </dependency>
-        -->
-        <!-- Controladores para JDBC Derby -->
-       
+        <!-- Controladores para JDBC Derby -->       
         <dependency>
             <groupId>org.apache.derby</groupId>
             <artifactId>derbyclient</artifactId>
