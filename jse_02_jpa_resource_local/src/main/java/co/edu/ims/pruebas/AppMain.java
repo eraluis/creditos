@@ -66,6 +66,7 @@ public class AppMain {
         
         // Se crea objeto en memoria (sin persistir aun).
         Genero romance = new Genero("Romance", "Peliculas de romance");
+                
     }
     
 }

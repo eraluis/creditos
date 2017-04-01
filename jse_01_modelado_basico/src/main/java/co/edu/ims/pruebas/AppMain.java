@@ -28,9 +28,15 @@ public class AppMain {
         titanic.getGeneros().add(accion);
         
         Gson gson = new Gson();
-        String json = gson.toJson(terminator);
         
-        System.out.println(json);
+        String json1 = gson.toJson(terminator);        
+        System.out.println(json1);
+        
+        String json2 = gson.toJson(comedia);        
+        System.out.println(json2);
+        
+        String json3 = gson.toJson(terminator);        
+        System.out.println(json3);
               
     }
     

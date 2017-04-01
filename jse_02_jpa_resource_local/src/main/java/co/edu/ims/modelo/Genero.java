@@ -7,7 +7,9 @@ import javax.persistence.Id;
 @Entity
 public class Genero implements Serializable {
     
-    // Atributos
+	private static final long serialVersionUID = 2364230599816093766L;
+	
+	// Atributos
     @Id    
     private String nombre;
     private String descripcion;
