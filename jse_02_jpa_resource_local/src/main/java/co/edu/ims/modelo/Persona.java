@@ -12,7 +12,7 @@ import javax.persistence.TemporalType;
 @Entity
 public class Persona implements Serializable {
     
-	private static final long serialVersionUID = 5724825294535387345L;
+    private static final long serialVersionUID = 5724825294535387345L;
 
 	// Atributos
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
