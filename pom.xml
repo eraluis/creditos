@@ -8,7 +8,7 @@
     <modules>
         <module>jse_01_modelado_basico</module>
         <module>jse_02_jpa_resource_local</module>
-    <module>jee-01-web-basica</module>
+        <module>jee-01-web-basica</module>
         <module>jee-03-ejbs_y_jpa</module>
     </modules>
     <properties>
