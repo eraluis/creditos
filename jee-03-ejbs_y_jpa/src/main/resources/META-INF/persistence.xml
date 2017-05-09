@@ -6,6 +6,6 @@
         <properties>		
             <property name="javax.persistence.schema-generation.database.action" value="drop-and-create" />
 <!--        <property name="javax.persistence.sql-load-script-source" value="META-INF/sql/scriptsDB.sql" /> -->
-        </properties>
+        </properties> 
     </persistence-unit>
 </persistence>
