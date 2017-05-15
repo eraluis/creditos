@@ -1,5 +1,6 @@
 package co.edu.ims.ejbs;
 
+import co.edu.ims.modelo.Pelicula;
 import co.edu.ims.modelo.Persona;
 import java.util.List;
 import javax.ejb.Stateless;
@@ -10,7 +11,6 @@ import javax.persistence.TypedQuery;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
-import static javax.ws.rs.HttpMethod.POST;
 import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
@@ -23,12 +23,17 @@ import javax.ws.rs.core.Response;
 public class PersonaEJB {
     
     @PersistenceContext(unitName = "peliculasPU")
-    protected EntityManager em;        
+    protected EntityManager em;
+    
+    @Inject SingletonEJB singletonEJB;
     
     @GET
     @Path("{id}")
     @Produces("application/json")       
     public Persona buscar(@PathParam("id") Integer pId){
+        
+        singletonEJB.incrementarCodigo();
+        System.out.println(singletonEJB.getCodigoOperacion());                               
         return em.find(Persona.class, pId);        
     }
     
@@ -37,7 +42,9 @@ public class PersonaEJB {
     @Consumes("application/json")
     public Persona crear(Persona p){
         em.persist(p);
-        em.flush();        
+        em.flush();
+        singletonEJB.incrementarCodigo();
+        System.out.println(singletonEJB.getCodigoOperacion());
         return p;
     }          
 
@@ -49,6 +56,9 @@ public class PersonaEJB {
         if( p != null){
             em.remove(p);
         }
+        
+        singletonEJB.incrementarCodigo();
+        System.out.println(singletonEJB.getCodigoOperacion());
         return Response.noContent().build();
     }
 
@@ -57,6 +67,8 @@ public class PersonaEJB {
     @Consumes("application/json")
     public Persona actualizar(Persona p){
         em.merge(p);  
+        singletonEJB.incrementarCodigo();
+        System.out.println(singletonEJB.getCodigoOperacion());
         return p;
     }
     
@@ -66,6 +78,31 @@ public class PersonaEJB {
         String jpql = "SELECT per FROM Persona per";  
         TypedQuery<Persona> q = em.createQuery(jpql, Persona.class);
         List<Persona> resultado = q.getResultList();
+        singletonEJB.incrementarCodigo();
+        System.out.println(singletonEJB.getCodigoOperacion());
         return resultado;              
+    }
+    
+    @GET
+    @Path("/nombre/{nombre}")
+    @Produces("application/json")       
+    public List<Persona> buscarPorNombre(@PathParam("nombre") String nombre){                
+        String jpql = "SELECT per FROM Persona per WHERE per.nombre LIKE :pNombre ";        
+        TypedQuery<Persona> q = em.createQuery(jpql, Persona.class);
+        q.setParameter("pNombre", "%"+nombre+"%");
+        List<Persona> resultado = q.getResultList();        
+        return resultado;              
+    }
+    
+    @PUT
+    @Path("/agregarpelicula/{id}")
+    @Produces("application/json")      
+    @Consumes("application/json")
+    public Pelicula agregarPelicula(@PathParam("id") Integer pId, Pelicula p){       
+        Persona director = this.buscar(pId);
+        p.setDirector(director);
+        em.persist(p);
+        em.flush();        
+        return p;
     }
 }

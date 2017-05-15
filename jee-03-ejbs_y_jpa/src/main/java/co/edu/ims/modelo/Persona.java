@@ -18,8 +18,8 @@ public class Persona implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    private String nombre;
-    private String nacionalidad;
+    private String nombre = "";
+    private String nacionalidad = "";
     
     @Temporal(TemporalType.DATE )
     private Date fechaNacimiento;

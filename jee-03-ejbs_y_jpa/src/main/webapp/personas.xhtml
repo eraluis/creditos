@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <title>Ejmplo JSF</title>
+    </h:head>
+
+    <h:body>
+        <h1> Personas </h1>
+        <h:form>            
+            <p:dataTable id="personas" var="per" value="#{personaBean.personas}">
+                <p:column headerText="Id">
+                    <h:outputText value="#{per.id}" />
+                </p:column>
+
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{per.nombre}" />
+                </p:column>
+
+                <p:column headerText="Nacionalidad">
+                    <h:outputText value="#{per.nacionalidad}" />
+                </p:column>
+            </p:dataTable> 
+            
+            <br />
+            <p:fieldset legend="Agregar" toggleable="true" toggleSpeed="500" style="width: 40%">
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="Nombre: "/>
+                    <h:inputText value="#{personaBean.persona.nombre}"  />
+
+                    <h:outputLabel value="Nacionalidad "/>
+                    <h:inputText value="#{personaBean.persona.nacionalidad}" />
+
+                    <h:outputLabel value=""/>
+                    <p:commandButton value="Guardar" action="#{personaBean.guardar}" update="@form"/>                 
+                </h:panelGrid>
+            </p:fieldset>           
+        </h:form>
+
+    </h:body>
+</html>
